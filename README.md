@@ -70,3 +70,44 @@ __Verificação de Aceitação ou Rejeição:__
 
 Desafio: Determinar se a palavra de entrada deveria ser aceita ou rejeitada com base no estado final atingido pela máquina.</br>
 Solução: Após cada transição, o simulador verifica se o estado atual está na lista de estados de aceitação. Se estiver, a palavra é aceita; caso contrário, o simulador continua até que uma condição de rejeição seja atingida.
+
+# Manual de Usuário
+
+1. __Pré-requisitos__
+
+Compilador C++: Certifique-se de ter um compilador C++ instalado, como g++.
+
+Arquivos necessários:</br>
+O código fonte (main.cpp).</br>
+Um arquivo de configuração da Máquina de Turing (maquina_turing.txt).
+
+2. __Compilando o Programa__
+
+Para compilar o programa, use o seguinte comando no terminal:
+
+`g++ -o simulador main.cpp`
+
+Isso irá gerar um executável chamado simulador.
+
+3. __Estrutura do Arquivo de Configuração__
+
+O arquivo de configuração da Máquina de Turing (maquina_turing.txt) deve seguir o seguinte formato:
+
+Linha 1: Lista de estados da máquina, entre chaves {} e separados por vírgulas.</br>
+Linha 2: Alfabeto de entrada, entre chaves {} e separados por vírgulas.</br>
+Linha 3: Alfabeto da fita, entre chaves {} e separados por vírgulas.</br>
+Linhas 4 em diante: Transições, no formato (estado_atual,símbolo_lido) -> (estado_seguinte,símbolo_escrito,direção).</br>
+Penultima linha: Estado inicial.</br>
+Ultima linha: Estados de aceitação, entre chaves {} e separados por vírgulas.</br>
+
+4. __Executando o Programa__
+
+Após a compilação, execute o programa usando o comando:
+
+`./simulador`
+
+O programa solicitará três informações:
+
+Nome do arquivo de descrição: O nome do arquivo de configuração da Máquina de Turing. Exemplo: maquina_turing.txt.</br>
+Palavra de entrada: A palavra que você deseja processar. Exemplo: 010.</br>
+Nome do arquivo de saída: O nome do arquivo onde o resultado será gravado. Exemplo: resultado.txt.

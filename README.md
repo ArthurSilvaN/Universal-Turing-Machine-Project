@@ -111,3 +111,137 @@ O programa solicitará três informações:
 Nome do arquivo de descrição: O nome do arquivo de configuração da Máquina de Turing. Exemplo: maquina_turing.txt.</br>
 Palavra de entrada: A palavra que você deseja processar. Exemplo: 010.</br>
 Nome do arquivo de saída: O nome do arquivo onde o resultado será gravado. Exemplo: resultado.txt.
+
+# Documentação dos Testes
+
+### Exemplo 1: Maquina de Turing para inverter os Binários
+
+Resultados esperados: Este teste é projetado para verificar se a máquina de Turing pode inverter corretamente uma sequência binária. A saída esperada é a sequência binária invertida, e a máquina deve aceitar a entrada. Podemos Observar que ele faz a reversão 10110 -> 01001
+
+Exemplo de input:
+```
+Insira o nome do arquivo de descricao: MT-Inverte-Binario.txt
+Insira a palavra de entrada: 10110
+Insira o nome do arquivo de saída: saida.txt 
+```
+
+output (arquivo):
+
+```
+[q0]B10110B
+B[q1]10110B
+B0[q1]0110B
+B01[q1]110B
+B010[q1]10B
+B0100[q1]0B
+B01001[q1]B
+B01001B[q2]
+aceita
+```
+
+### Exemplo 2: Maquina de Turing para aceitar mesmo numeros de a's e b's
+
+Resultados esperados: Este teste é projetado para verificar se a máquina de Turing pode aceitar corretamente uma entrada que contém o mesmo número de 'a's e 'b's. A saída esperada é a sequência de transições que a máquina faz ao processar a entrada, a máquina deve aceitar a entrada quando a palavratem o mesmo numero e reijar caso contrário.
+
+Exemplo de input:
+```
+Insira o nome do arquivo de descricao: MT-Mesmo-Numero-AB.txt
+Insira a palavra de entrada: aaabbb
+Insira o nome do arquivo de saída: saida.txt
+```
+
+output (arquivo):
+
+exemplo que aceita:
+
+```
+[q0]BaaabbbB
+B[q1]aaabbbB
+BX[q2]aabbbB
+BXa[q2]abbbB
+BXaa[q2]bbbB
+BXa[q3]aYbbB
+BX[q3]aaYbbB
+B[q3]XaaYbbB
+BX[q1]aaYbbB
+BXX[q2]aYbbB
+BXXa[q2]YbbB
+BXXaY[q2]bbB
+BXXa[q3]YYbB
+BXX[q3]aYYbB
+BX[q3]XaYYbB
+BXX[q1]aYYbB
+BXXX[q2]YYbB
+BXXXY[q2]YbB
+BXXXYY[q2]bB
+BXXXY[q3]YYB
+BXXX[q3]YYYB
+BXX[q3]XYYYB
+BXXX[q1]YYYB
+BXXXY[q1]YYB
+BXXXYY[q1]YB
+BXXXYYY[q1]B
+BXXXYYYB[q4]
+aceita
+```
+exemplo que rejeita:
+
+```
+[q0]BaaabB
+B[q1]aaabB
+BX[q2]aabB
+BXa[q2]abB
+BXaa[q2]bB
+BXa[q3]aYB
+BX[q3]aaYB
+B[q3]XaaYB
+BX[q1]aaYB
+BXX[q2]aYB
+BXXa[q2]YB
+BXXaY[q2]B
+rejeita
+```
+
+### Exemplo 3: Maquina de Turing que entra em Loop
+
+Exemplo de input:
+```
+Insira o nome do arquivo de descricao: MT-Loop.txt
+Insira a palavra de entrada: a
+Insira o nome do arquivo de saída: saida.txt
+```
+
+Resultados esperados: Este teste é projetado para verificar se a máquina de Turing pode lidar corretamente com um loop infinito. A saída esperada é uma sequência infinita de transições que a máquina faz ao processar a entrada. Neste caso, a máquina não deve aceitar nem rejeitar a entrada, pois ela entra em um loop infinito.
+
+output (arquivo):
+
+```
+[q0]BaB
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+B[q1]aB
+Ba[q1]B
+[...]
+```

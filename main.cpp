@@ -137,9 +137,9 @@ string formatar_fita(vector<char> fita, int posicao_cabeca, const string& estado
     string resultado;
     for (int i = 0; i < fita.size(); i++) {
         if (i == posicao_cabeca) {
-            resultado += "{" + estado_atual + "}" + string(1, fita[i]);
+            resultado += "[" + estado_atual + "]" + string(1, fita[i]);
         } else if (posicao_cabeca == fita.size() && i == fita.size() - 1) {
-            resultado += string(1, fita[i]) + "{" + estado_atual + "}";
+            resultado += string(1, fita[i]) + "[" + estado_atual + "]";
         } else {
             resultado += string(1, fita[i]);
         }
